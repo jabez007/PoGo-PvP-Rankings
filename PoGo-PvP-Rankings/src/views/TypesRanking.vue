@@ -50,7 +50,20 @@
         </v-card>
       </v-flex>
       <v-flex xs2>
-
+        <v-select label="Filter by type"
+                  prepend-inner-icon="filter_list"
+                  :items="baseTypes"
+                  v-model="filter"
+                  multiple
+                  clearable>
+          <template slot="selection"
+                    slot-scope="data">
+            <v-chip @input="filter.splice(filter.indexOf(data.item), 1)"
+                    close>
+              {{ data.item }}
+            </v-chip>
+          </template>
+        </v-select>
       </v-flex>
       <v-flex xs2>
         <v-card color="red accent-2"
@@ -86,7 +99,7 @@
       </v-flex>
     </v-toolbar>
     <v-card-text class="scroll">
-      <v-layout v-for="t in types"
+      <v-layout v-for="t in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
                 :key="t.name"
                 row>
         <v-flex xs2>
@@ -114,6 +127,8 @@
 export default {
   name: 'TypesRanking',
   data: () => ({
+    baseTypes: [],
+    filter: [],
     types: [],
   }),
   created() {
@@ -141,6 +156,7 @@ export default {
             };
           });
         const baseTypes = Object.keys(types);
+        self.baseTypes = baseTypes;
         for (let i = 0; i < baseTypes.length - 1; i += 1) {
           for (let j = i + 1; j < baseTypes.length; j += 1) {
             const typeOne = baseTypes[i];
