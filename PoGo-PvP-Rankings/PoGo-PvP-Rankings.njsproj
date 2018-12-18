@@ -37,6 +37,11 @@
     <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\views\About.vue" />
+    <Content Include="src\views\Home.vue" />
+    <Content Include="src\views\TypesRanking.vue">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -44,10 +49,15 @@
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
+    <Folder Include="src\plugins\" />
+    <Folder Include="src\views\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".eslintrc.js" />
     <Compile Include="src\main.js" />
     <Compile Include=".postcssrc.js" />
+    <Compile Include="src\plugins\vuetify.js" />
+    <Compile Include="src\router.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
