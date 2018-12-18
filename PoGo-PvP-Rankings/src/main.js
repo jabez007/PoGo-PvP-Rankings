@@ -8,8 +8,9 @@ Vue.config.productionTip = true;
 Vue.prototype.$pokedex = new Pokedex();
 Vue.prototype.$typesEffective = {
   def: {
-    immune: 0.390625,
-    strong: 0.625,
+    immune: 0.244140625,
+    endures: 0.390625,
+    resists: 0.625,
     weak: 1.6,
     vulnerable: 2.56,
   },

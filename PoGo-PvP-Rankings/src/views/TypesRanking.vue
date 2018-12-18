@@ -1,5 +1,112 @@
 <template>
-  <v-card>
+  <v-card width="100%">
+    <v-toolbar card>
+      <v-flex xs2>
+        <v-card color="green accent-4"
+                class="header"
+                flat>
+          <v-layout align-center
+                    row>
+            <v-chip color="success darken-4"
+                    text-color="white">
+              {{ Math.round($typesEffective.def.immune * 100) }}%
+            </v-chip>
+            <v-spacer></v-spacer>
+            <h6 class="title grey--text text--lighten-5 hidden-md-and-down">Immune</h6>
+            <v-spacer></v-spacer>
+          </v-layout>
+        </v-card>
+      </v-flex>
+      <v-flex xs2>
+        <v-card color="green accent-3"
+                class="header"
+                flat>
+          <v-layout align-center
+                    row>
+            <v-chip color="green darken-3"
+                    text-color="white">
+              {{ Math.round($typesEffective.def.endures * 100) }}%
+            </v-chip>
+            <v-spacer></v-spacer>
+            <h6 class="title grey--text text--lighten-4 hidden-md-and-down">Endures</h6>
+            <v-spacer></v-spacer>
+          </v-layout>
+        </v-card>
+      </v-flex>
+      <v-flex xs2>
+        <v-card color="green accent-2"
+                class="header"
+                flat>
+          <v-layout align-center
+                    row>
+            <v-chip color="green darken-2"
+                    text-color="white">
+              {{ Math.round($typesEffective.def.resists * 100) }}%
+            </v-chip>
+            <v-spacer></v-spacer>
+            <h6 class="title grey--text text--lighten-3 hidden-md-and-down">Resists</h6>
+            <v-spacer></v-spacer>
+          </v-layout>
+        </v-card>
+      </v-flex>
+      <v-flex xs2>
+
+      </v-flex>
+      <v-flex xs2>
+        <v-card color="red accent-2"
+                class="header"
+                flat>
+          <v-layout align-center
+                    row>
+            <v-spacer></v-spacer>
+            <h6 class="title grey--text text--lighten-3 hidden-md-and-down">Weak to</h6>
+            <v-spacer></v-spacer>
+            <v-chip color="red darken-2"
+                    text-color="white">
+              {{ Math.round($typesEffective.def.weak * 100) }}%
+            </v-chip>
+          </v-layout>
+        </v-card>
+      </v-flex>
+      <v-flex xs2>
+        <v-card color="red accent-3"
+                class="header"
+                flat>
+          <v-layout align-center
+                    row>
+            <v-spacer></v-spacer>
+            <h6 class="title grey--text text--lighten-4 hidden-md-and-down">Vulnerable to</h6>
+            <v-spacer></v-spacer>
+            <v-chip color="red darken-3"
+                    text-color="white">
+              {{ Math.round($typesEffective.def.vulnerable * 100) }}%
+            </v-chip>
+          </v-layout>
+        </v-card>
+      </v-flex>
+    </v-toolbar>
+    <v-card-text class="scroll">
+      <v-layout v-for="t in types"
+                :key="t.name"
+                row>
+        <v-flex xs2>
+        </v-flex>
+        <v-flex xs2>
+        </v-flex>
+        <v-flex xs2>
+        </v-flex>
+        <v-flex class="text-xs-center"
+                xs2>
+          <v-chip>
+            {{ t.name }}
+          </v-chip>
+        </v-flex>
+        <v-flex xs2>
+        </v-flex>
+        <v-flex xs2>
+        </v-flex>
+      </v-layout>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -7,7 +114,7 @@
 export default {
   name: 'TypesRanking',
   data: () => ({
-    types: {},
+    types: [],
   }),
   created() {
     const self = this;
@@ -22,9 +129,10 @@ export default {
           .forEach((response) => {
             types[response.name] = {
               def: {
-                immune: response.damage_relations.no_damage_from
+                immune: [],
+                endures: response.damage_relations.no_damage_from
                   .map(type => type.name),
-                strong: response.damage_relations.half_damage_from
+                resists: response.damage_relations.half_damage_from
                   .map(type => type.name),
                 weak: response.damage_relations.double_damage_from
                   .map(type => type.name),
@@ -40,33 +148,30 @@ export default {
             types[`${typeOne}/${typeTwo}`] = {
               def: {
                 immune: [],
-                strong: [],
+                endures: [],
+                resists: [],
                 weak: [],
                 vulnerable: [],
               },
             };
 
-            const immunities = types[typeOne].def.immune
+            const endurances = types[typeOne].def.immune
               .concat(types[typeTwo].def.immune);
-            const strengths = types[typeOne].def.strong
-              .concat(types[typeTwo].def.strong);
+            const resistances = types[typeOne].def.resists
+              .concat(types[typeTwo].def.resists);
             const weaknesses = types[typeOne].def.weak
               .concat(types[typeTwo].def.weak);
-            const vulnerabilities = types[typeOne].def.vulnerable
-              .concat(types[typeTwo].def.vulnerable);
 
-            immunities
+            endurances
               .forEach((t, idx, a) => {
                 if (a.indexOf(t) === idx) { // filter out duplicates
-                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this immunity
-                    if (strengths.indexOf(t) > -1) { // one type is immune and the other type is strong
-                      // immune and strong => leave as immune for now
+                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this endurance
+                    if (resistances.indexOf(t) > -1) { // one type endures while the other type resists
+                      // combines as immune
                       types[`${typeOne}/${typeTwo}`].def.immune.push(t);
                     } else if (weaknesses.indexOf(t) > -1) { // one type is immue and the other type is weak
-                      // combined, that leaves strong
-                      types[`${typeOne}/${typeTwo}`].def.strong.push(t);
-                    } else if (vulnerabilities.indexOf(t) > -1) { // one type is immune and the other type is vulnerable
-                      // then they just cancel out
+                      // combined, that leaves resists
+                      types[`${typeOne}/${typeTwo}`].def.resists.push(t);
                     } else { // doesn't pair up
                       // then it stays as is
                       types[`${typeOne}/${typeTwo}`].def.immune.push(t);
@@ -76,20 +181,17 @@ export default {
                   }
                 }
               });
-            strengths
+            resistances
               .forEach((t, idx, a) => {
                 if (a.indexOf(t) === idx) { // filter out duplicates
-                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this strength
-                    if (immunities.indexOf(t) > -1) { // already checked this
+                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type is resistant
+                    if (endurances.indexOf(t) > -1) { // already checked this
                       // do nothing this time
-                    } else if (weaknesses.indexOf(t) > -1) { // one type is strong and the other type is weak
+                    } else if (weaknesses.indexOf(t) > -1) { // one type resists while the other type is weak
                       // then they just cancel out
-                    } else if (vulnerabilities.indexOf(t) > -1) { // one type is strong and the other type is vulnerable
-                      // combined, that leaves weak
-                      types[`${typeOne}/${typeTwo}`].def.weak.push(t);
                     } else { // doesn't pair up
                       // then it stays as is
-                      types[`${typeOne}/${typeTwo}`].def.strong.push(t);
+                      types[`${typeOne}/${typeTwo}`].def.resists.push(t);
                     }
                   } else { // both types have this strength
                     // combined as an immunity
@@ -101,13 +203,10 @@ export default {
               .forEach((t, idx, a) => {
                 if (a.lastIndexOf(t) === idx) { // filter out duplicates
                   if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this weakness
-                    if (immunities.indexOf(t) > -1) { // already checked this
+                    if (endurances.indexOf(t) > -1) { // already checked this
                       // do nothing this time
-                    } else if (strengths.indexOf(t) > -1) { // already checked this
+                    } else if (resistances.indexOf(t) > -1) { // already checked this
                       // do nothing this time
-                    } else if (vulnerabilities.indexOf(t) > -1) { // one type is weak and the other type is vulnerable
-                      // leave as vulnerable for now
-                      types[`${typeOne}/${typeTwo}`].def.vulnerable.push(t);
                     } else { // doesn't pair up
                       // then it stays as is
                       types[`${typeOne}/${typeTwo}`].def.weak.push(t);
@@ -121,11 +220,50 @@ export default {
           }
         }
 
-        self.types = types;
+        self.types = Object.keys(types)
+          .map(t => ({
+            name: t,
+            def: types[t].def,
+            score: (18 - (types[t].def.immune.length + types[t].def.endures.length + types[t].def.resists.length + types[t].def.weak.length + types[t].def.vulnerable.length))
+              + (types[t].def.immune.length * self.$typesEffective.def.immune)
+              + (types[t].def.endures.length * self.$typesEffective.def.endures)
+              + (types[t].def.resists.length * self.$typesEffective.def.resists)
+              + (types[t].def.weak.length * self.$typesEffective.def.weak)
+              + (types[t].def.vulnerable.length * self.$typesEffective.def.vulnerable),
+          }))
+          .sort((t1, t2) => {
+            if (t1.score < t2.score) {
+              return -1;
+            }
+            if (t1.score > t2.score) {
+              return 1;
+            }
+            // same score
+            if (t1.def.immune.length > t2.def.immune.length || t1.def.vulnerable.length < t2.def.vulnerable.length) {
+              return -1;
+            } if (t1.def.immune.length < t2.def.immune.length && t1.def.vulnerable.length > t2.def.vulnerable.length) {
+              return 1;
+            }
+            // same number of immunities and vulnerabilities
+            if (t1.def.resists.length > t2.def.resists.length || t1.def.weak.length < t2.def.weak.length) {
+              return -1;
+            } if (t1.def.resists.length < t2.def.resists.length && t1.def.weak.length > t2.def.weak.length) {
+              return 1;
+            }
+            // same number of resistances and weaknesses
+            return 0;
+          });
       });
   },
 };
 </script>
 
 <style scoped>
+  .header {
+    border-radius: 28px;
+  }
+  .scroll {
+    max-height: 56em;
+    overflow-y: scroll !important;
+  }
 </style>

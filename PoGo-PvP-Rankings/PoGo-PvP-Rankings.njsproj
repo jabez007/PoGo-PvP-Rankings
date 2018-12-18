@@ -38,7 +38,6 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="src\views\About.vue" />
-    <Content Include="src\views\Home.vue" />
     <Content Include="src\views\TypesRanking.vue">
       <SubType>Code</SubType>
     </Content>
