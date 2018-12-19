@@ -158,14 +158,8 @@ export default {
     baseTypes: [],
     filter: [],
     types: [],
+    height: 0,
   }),
-  computed: {
-    height() {
-      return ('innerHeight' in window
-        ? window.innerHeight
-        : document.documentElement.offsetHeight) * 0.9;
-    },
-  },
   created() {
     const self = this;
     const promises = [];
@@ -230,9 +224,42 @@ export default {
           });
       });
   },
+  mounted() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize, { passive: true });
+  },
+  beforeDestroy() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.onResize, { passive: true });
+    }
+  },
   methods: {
     getImgSrc(type) {
       return require(`../assets/${type}.png`);
+    },
+    onResize() {
+      const height = 'innerHeight' in window
+        ? window.innerHeight
+        : document.documentElement.offsetHeight;
+      let factor = 1;
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': 
+          factor = 0.5;
+          break;
+        case 'sm': 
+          factor = 0.6;
+          break;
+        case 'md': 
+          factor = 0.7;
+          break;
+        case 'lg':
+          factor = 0.8;
+          break;
+        case 'xl':
+          factor = 0.9;
+          break;
+      }
+      this.height = height * factor;      
     },
   },
 };
