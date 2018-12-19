@@ -4,7 +4,7 @@
           :color="color"
           flat
           tile
-          :hover="hover">
+          :hover="onHover">
     <slot>
     </slot>
     <TypeChip v-for="(type, index) in types"
@@ -34,10 +34,13 @@ export default {
   components: {
     TypeChip: () => import('@/components/TypeChip.vue'),
   },
-  created() {
-    if (this.types.length === 0) {
-      this.hover = false;
-    }
+  computed: {
+    onHover() {
+      if (this.types.length === 0) {
+        return false;
+      }
+      return this.hover;
+    },
   },
 };
 </script>
