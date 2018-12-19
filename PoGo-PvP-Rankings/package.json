@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "vue-cli-service build && push-dir --dir=dist --branch=master --cleanup"
   },
   "dependencies": {
     "pokedex-promise-v2": "^3.1.1",
@@ -21,6 +22,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "push-dir": "^0.4.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-cli-plugin-vuetify": "^0.4.6",
@@ -34,6 +36,6 @@
   ],
   "description": "PoGo-PvP-Rankings",
   "author": {
-    "name": ""
+    "name": "Jimmy McCann"
   }
 }
