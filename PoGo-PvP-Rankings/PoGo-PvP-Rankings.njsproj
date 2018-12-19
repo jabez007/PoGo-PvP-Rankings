@@ -37,6 +37,12 @@
     <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\components\TypeChip.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\TypesCard.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\views\About.vue" />
     <Content Include="src\views\TypesRanking.vue">
       <SubType>Code</SubType>

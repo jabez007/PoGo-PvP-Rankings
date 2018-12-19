@@ -24,5 +24,5 @@ Vue.use(Vuetify, {
     rock: '#B8A038',
     steel: '#B8B8D0',
     water: '#6890F0',
-  }
+  },
 });

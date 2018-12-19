@@ -54,13 +54,18 @@
                   prepend-inner-icon="filter_list"
                   :items="baseTypes"
                   v-model="filter"
+                  hide-details
+                  dense
                   multiple
                   clearable>
           <template slot="selection"
                     slot-scope="data">
             <v-chip @input="filter.splice(filter.indexOf(data.item), 1)"
+                    :color="data.item"
+                    text-color="white"
                     close>
-              {{ data.item }}
+              <v-avatar :color="`${data.item} darken-3`">
+              </v-avatar>
             </v-chip>
           </template>
         </v-select>
@@ -99,24 +104,42 @@
       </v-flex>
     </v-toolbar>
     <v-card-text class="scroll">
-      <v-layout v-for="t in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
+      <v-layout v-for="(t, index) in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
                 :key="t.name"
                 row>
         <v-flex xs2>
+          <TypesCard :types="t.def.immune"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          </TypesCard>
         </v-flex>
         <v-flex xs2>
+          <TypesCard :types="t.def.endures"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          </TypesCard>
         </v-flex>
         <v-flex xs2>
-        </v-flex>
-        <v-flex class="text-xs-center"
-                xs2>
-          <v-chip>
-            {{ t.name }}
-          </v-chip>
+          <TypesCard :types="t.def.resists"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          </TypesCard>
         </v-flex>
         <v-flex xs2>
+          <TypesCard :types="t.name.split('/')"
+                     :hover="false"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+            <v-chip>
+              {{ Math.round(t.score * 100) / 100 }}
+            </v-chip>
+          </TypesCard>
         </v-flex>
         <v-flex xs2>
+          <TypesCard :types="t.def.weak"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          </TypesCard>
+        </v-flex>
+        <v-flex xs2>
+          <TypesCard :types="t.def.vulnerable"
+                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          </TypesCard>
         </v-flex>
       </v-layout>
     </v-card-text>
@@ -126,6 +149,9 @@
 <script>
 export default {
   name: 'TypesRanking',
+  components: {
+    TypesCard: () => import('@/components/TypesCard.vue'),
+  },
   data: () => ({
     baseTypes: [],
     filter: [],
