@@ -3,9 +3,13 @@
     <TypesCard slot="activator"
                :types="types"
                :hover="false">
+      <slot>
+      </slot>
     </TypesCard>
     <v-card>
       <v-toolbar card>
+        <slot>
+        </slot>
         <v-spacer></v-spacer>
         <TypeChip v-for="(type, index) in types"
                   :key="index"
