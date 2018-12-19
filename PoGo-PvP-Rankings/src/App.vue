@@ -38,3 +38,10 @@ export default {
   }),
 };
 </script>
+
+<style>
+  div.v-dialog__activator {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>

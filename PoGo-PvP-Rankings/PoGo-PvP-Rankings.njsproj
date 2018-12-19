@@ -34,8 +34,10 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
+    <Content Include="src\components\HelloWorld.vue" />
     <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
+    <Content Include="src\components\PokemonOfTypeDialog.vue" />
     <Content Include="src\components\TypeChip.vue">
       <SubType>Code</SubType>
     </Content>
@@ -60,6 +62,7 @@
     <Compile Include=".eslintrc.js" />
     <Compile Include="src\main.js" />
     <Compile Include=".postcssrc.js" />
+    <Compile Include="src\plugins\vue.prototype.js" />
     <Compile Include="src\plugins\vuetify.js" />
     <Compile Include="src\router.js" />
     <Compile Include="vue.config.js">

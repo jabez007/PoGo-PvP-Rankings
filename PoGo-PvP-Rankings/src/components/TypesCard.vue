@@ -1,16 +1,21 @@
 <template>
   <v-card height="100%"
-          class="text-xs-center"
           :color="color"
           flat
           tile
           :hover="onHover">
-    <slot>
-    </slot>
-    <TypeChip v-for="(type, index) in types"
-              :key="index"
-              :type="type">
-    </TypeChip>
+    <v-layout justify-center
+              fill-height
+              align-center
+              row
+              wrap>
+      <slot>
+      </slot>
+      <TypeChip v-for="(type, index) in types"
+                :key="index"
+                :type="type">
+      </TypeChip>
+    </v-layout>
   </v-card>
 </template>
 

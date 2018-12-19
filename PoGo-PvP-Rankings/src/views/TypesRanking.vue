@@ -106,7 +106,7 @@
       </v-flex>
     </v-toolbar>
     <v-card-text class="scroll"
-                 :style="`max-height: ${height}px;`">
+                 :style="`max-height: ${height}em;`">
       <v-layout v-for="(t, index) in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
                 :key="t.name"
                 row>
@@ -190,7 +190,7 @@ export default {
           for (let j = i + 1; j < baseTypes.length; j += 1) {
             const typeOne = baseTypes[i];
             const typeTwo = baseTypes[j];
-            types[`${typeOne}/${typeTwo}`] = self.$combineTypes(types[typeOne], types[typeTwo]); 
+            types[`${typeOne}/${typeTwo}`] = self.$combineTypes(types[typeOne], types[typeTwo]);
           }
         }
 
@@ -238,28 +238,23 @@ export default {
       return require(`../assets/${type}.png`);
     },
     onResize() {
-      const height = 'innerHeight' in window
-        ? window.innerHeight
-        : document.documentElement.offsetHeight;
-      let factor = 1;
       switch (this.$vuetify.breakpoint.name) {
-        case 'xs': 
-          factor = 0.5;
+        case 'xs':
+          this.height = 56;
           break;
-        case 'sm': 
-          factor = 0.6;
+        case 'sm':
+          this.height = 56;
           break;
-        case 'md': 
-          factor = 0.7;
+        case 'md':
+          this.height = 56;
           break;
         case 'lg':
-          factor = 0.8;
+          this.height = 56;
           break;
         case 'xl':
-          factor = 0.9;
+          this.height = 56;
           break;
       }
-      this.height = height * factor;      
     },
   },
 };
@@ -271,5 +266,10 @@ export default {
   }
   .scroll {
     overflow-y: scroll !important;
+  }
+
+  div.v-dialog__container {
+    width: 100% !important;
+    height: 100% !important;
   }
 </style>

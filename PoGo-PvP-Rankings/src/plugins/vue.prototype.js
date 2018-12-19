@@ -21,16 +21,16 @@ Vue.prototype.$combineTypes = function (typeOne, typeTwo) {
       resists: [],
       weak: [],
       vulnerable: [],
-      },
+    },
   };
-  
+
   const endurances = typeOne.def.endures
     .concat(typeTwo.def.endures);
   const resistances = typeOne.def.resists
     .concat(typeTwo.def.resists);
   const weaknesses = typeOne.def.weak
     .concat(typeTwo.def.weak);
-  
+
   endurances
     .forEach((t, idx, a) => {
       if (a.indexOf(t) === idx) { // filter out duplicates
@@ -45,7 +45,7 @@ Vue.prototype.$combineTypes = function (typeOne, typeTwo) {
             // then it stays as is
             newType.def.endures.push(t);
           }
-        } else { 
+        } else {
           // does there exist a double endures?
         }
       }
@@ -86,7 +86,7 @@ Vue.prototype.$combineTypes = function (typeOne, typeTwo) {
         }
       }
     });
-  
+
   return newType;
 };
 Vue.prototype.$getTypeDefScore = function (type) {
