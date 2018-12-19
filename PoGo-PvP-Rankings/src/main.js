@@ -18,7 +18,7 @@ Vue.prototype.$typesEffective = {
     vulnerable: 2.56,
   },
 };
-Vue.prototype.$combineTypes = (typeOne, typeTwo) => {
+Vue.prototype.$combineTypes = function (typeOne, typeTwo) {
   const newType = {
     def: {
       immune: [],
@@ -93,6 +93,14 @@ Vue.prototype.$combineTypes = (typeOne, typeTwo) => {
     });
   
   return newType;
+};
+Vue.prototype.$getTypeDefScore = function (type) {
+  return (18 - (type.def.immune.length + type.def.endures.length + type.def.resists.length + type.def.weak.length + type.def.vulnerable.length))
+    + (type.def.immune.length * this.$typesEffective.def.immune)
+    + (type.def.endures.length * this.$typesEffective.def.endures)
+    + (type.def.resists.length * this.$typesEffective.def.resists)
+    + (type.def.weak.length * this.$typesEffective.def.weak)
+    + (type.def.vulnerable.length * this.$typesEffective.def.vulnerable);
 };
 
 new Vue({
