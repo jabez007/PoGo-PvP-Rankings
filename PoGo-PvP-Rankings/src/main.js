@@ -5,7 +5,9 @@ import App from './App.vue';
 import router from './router';
 
 Vue.config.productionTip = true;
-Vue.prototype.$pokedex = new Pokedex();
+Vue.prototype.$pokedex = new Pokedex({
+  protocol: 'https',
+});
 Vue.prototype.$typesEffective = {
   def: {
     immune: 0.244140625,
