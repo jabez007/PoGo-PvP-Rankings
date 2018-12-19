@@ -105,7 +105,8 @@
         </v-card>
       </v-flex>
     </v-toolbar>
-    <v-card-text class="scroll">
+    <v-card-text class="scroll"
+                 :style="`max-height: ${height}px;`">
       <v-layout v-for="(t, index) in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
                 :key="t.name"
                 row>
@@ -159,6 +160,13 @@ export default {
     filter: [],
     types: [],
   }),
+  computed: {
+    height() {
+      return ('innerHeight' in window
+        ? window.innerHeight
+        : document.documentElement.offsetHeight) * 0.9;
+    },
+  },
   created() {
     const self = this;
     const promises = [];
@@ -236,7 +244,6 @@ export default {
     border-radius: 28px;
   }
   .scroll {
-    max-height: 56em;
     overflow-y: scroll !important;
   }
 </style>
