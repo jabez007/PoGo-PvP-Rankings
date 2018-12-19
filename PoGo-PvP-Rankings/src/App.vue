@@ -1,11 +1,24 @@
 <template>
   <v-app id="app"
          dark>
-    <v-toolbar id="nav"
-               app
-               fixed>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <v-navigation-drawer id="nav"
+                         v-model="drawer"
+                         clipped
+                         fixed
+                         app>
+    </v-navigation-drawer>
+    <v-toolbar clipped-left
+               fixed
+               app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>PoGo PvP Rankings</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <!--v-btn to="/"
+                  flat>
+          Home
+        </v-btn-->
+      </v-toolbar-items>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -17,3 +30,11 @@
     </v-content>
   </v-app>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    drawer: false,
+  }),
+};
+</script>

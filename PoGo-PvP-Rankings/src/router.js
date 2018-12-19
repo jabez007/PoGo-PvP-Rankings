@@ -18,5 +18,9 @@ export default new Router({
       name: 'types',
       component: () => import('./views/TypesRanking.vue'),
     },
+    {
+      path: '*',
+      component: () => import('./views/TypesRanking.vue'),
+    },
   ],
 });

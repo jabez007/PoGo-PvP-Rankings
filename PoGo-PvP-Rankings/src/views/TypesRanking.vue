@@ -63,6 +63,7 @@
             <v-chip @input="filter.splice(filter.indexOf(data.item), 1)"
                     :color="data.item"
                     text-color="white"
+                    small
                     close>
               <v-avatar :color="`${data.item} darken-3`">
               </v-avatar>
