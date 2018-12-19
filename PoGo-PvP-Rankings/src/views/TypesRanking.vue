@@ -189,78 +189,7 @@ export default {
           for (let j = i + 1; j < baseTypes.length; j += 1) {
             const typeOne = baseTypes[i];
             const typeTwo = baseTypes[j];
-            types[`${typeOne}/${typeTwo}`] = {
-              def: {
-                immune: [],
-                endures: [],
-                resists: [],
-                weak: [],
-                vulnerable: [],
-              },
-            };
-
-            const endurances = types[typeOne].def.endures
-              .concat(types[typeTwo].def.endures);
-            const resistances = types[typeOne].def.resists
-              .concat(types[typeTwo].def.resists);
-            const weaknesses = types[typeOne].def.weak
-              .concat(types[typeTwo].def.weak);
-
-            endurances
-              .forEach((t, idx, a) => {
-                if (a.indexOf(t) === idx) { // filter out duplicates
-                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this endurance
-                    if (resistances.indexOf(t) > -1) { // one type endures while the other type resists
-                      // combines as immune
-                      types[`${typeOne}/${typeTwo}`].def.immune.push(t);
-                    } else if (weaknesses.indexOf(t) > -1) { // one type is immue and the other type is weak
-                      // combined, that leaves resists
-                      types[`${typeOne}/${typeTwo}`].def.resists.push(t);
-                    } else { // doesn't pair up
-                      // then it stays as is
-                      types[`${typeOne}/${typeTwo}`].def.immune.push(t);
-                    }
-                  } else { // does there exist a double immunity?
-                    console.log(`${typeOne}/${typeTwo} double immune to ${t}`);
-                  }
-                }
-              });
-            resistances
-              .forEach((t, idx, a) => {
-                if (a.indexOf(t) === idx) { // filter out duplicates
-                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type is resistant
-                    if (endurances.indexOf(t) > -1) { // already checked this
-                      // do nothing this time
-                    } else if (weaknesses.indexOf(t) > -1) { // one type resists while the other type is weak
-                      // then they just cancel out
-                    } else { // doesn't pair up
-                      // then it stays as is
-                      types[`${typeOne}/${typeTwo}`].def.resists.push(t);
-                    }
-                  } else { // both types have this strength
-                    // combined as an immunity
-                    types[`${typeOne}/${typeTwo}`].def.immune.push(t);
-                  }
-                }
-              });
-            weaknesses
-              .forEach((t, idx, a) => {
-                if (a.lastIndexOf(t) === idx) { // filter out duplicates
-                  if (a.indexOf(t) === a.lastIndexOf(t)) { // only one type has this weakness
-                    if (endurances.indexOf(t) > -1) { // already checked this
-                      // do nothing this time
-                    } else if (resistances.indexOf(t) > -1) { // already checked this
-                      // do nothing this time
-                    } else { // doesn't pair up
-                      // then it stays as is
-                      types[`${typeOne}/${typeTwo}`].def.weak.push(t);
-                    }
-                  } else { // both types have this weakness
-                    // combined as a vulnerability
-                    types[`${typeOne}/${typeTwo}`].def.vulnerable.push(t);
-                  }
-                }
-              });
+            types[`${typeOne}/${typeTwo}`] = self.$combineTypes(types[typeOne], types[typeTwo]); 
           }
         }
 
@@ -268,12 +197,7 @@ export default {
           .map(t => ({
             name: t,
             def: types[t].def,
-            score: (18 - (types[t].def.immune.length + types[t].def.endures.length + types[t].def.resists.length + types[t].def.weak.length + types[t].def.vulnerable.length))
-              + (types[t].def.immune.length * self.$typesEffective.def.immune)
-              + (types[t].def.endures.length * self.$typesEffective.def.endures)
-              + (types[t].def.resists.length * self.$typesEffective.def.resists)
-              + (types[t].def.weak.length * self.$typesEffective.def.weak)
-              + (types[t].def.vulnerable.length * self.$typesEffective.def.vulnerable),
+            score: self.$getTypeDefScore(types[t]),
           }))
           .sort((t1, t2) => {
             if (t1.score < t2.score) {
