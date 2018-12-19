@@ -126,13 +126,11 @@
           </TypesCard>
         </v-flex>
         <v-flex xs2>
-          <TypesCard :types="t.name.split('/')"
-                     :hover="false"
-                     :color="`blue-grey ${index % 2 === 0 ? 'lighten-1' : 'darken-1'}`">
+          <PokemonOfTypeDialog :types="t.name.split('/')">
             <v-chip>
               {{ Math.round(t.score * 100) / 100 }}
             </v-chip>
-          </TypesCard>
+          </PokemonOfTypeDialog>
         </v-flex>
         <v-flex xs2>
           <TypesCard :types="t.def.weak"
@@ -154,6 +152,7 @@ export default {
   name: 'TypesRanking',
   components: {
     TypesCard: () => import('@/components/TypesCard.vue'),
+    PokemonOfTypeDialog: () => import('@/components/PokemonOfTypeDialog.vue'),
   },
   data: () => ({
     baseTypes: [],
