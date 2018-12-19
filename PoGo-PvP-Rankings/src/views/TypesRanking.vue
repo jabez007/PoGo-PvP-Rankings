@@ -199,8 +199,8 @@ export default {
               },
             };
 
-            const endurances = types[typeOne].def.immune
-              .concat(types[typeTwo].def.immune);
+            const endurances = types[typeOne].def.endures
+              .concat(types[typeTwo].def.endures);
             const resistances = types[typeOne].def.resists
               .concat(types[typeTwo].def.resists);
             const weaknesses = types[typeOne].def.weak
