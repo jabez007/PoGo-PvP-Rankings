@@ -5,17 +5,19 @@
                :hover="false">
     </TypesCard>
     <v-card>
-     <v-card-title>
-       <v-spacer>
-         <TypeChip v-for="(type, index) in types"
-                   :key="index"
-                   :type="type">
-         </TypeChip>
-       <v-spacer>
-     </v-card-title>
-     <v-card-text>
-       TODO: List Pokemon of this typing
-     </v-card-text>
+      <v-toolbar card>
+        <v-spacer></v-spacer>
+        <TypeChip v-for="(type, index) in types"
+                  :key="index"
+                  :type="type">
+        </TypeChip>
+        <v-spacer></v-spacer>
+        <v-btn @click="dialog = !dialog"
+               icon>
+          <v-icon>close</v-icon>
+        </v-btn>
+      </v-toolbar>
+      TODO: List Pokemon of this typing
     </v-card>
   </v-dialog>
 </template>
