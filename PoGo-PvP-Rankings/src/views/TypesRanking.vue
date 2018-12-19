@@ -66,6 +66,7 @@
                     small
                     close>
               <v-avatar :color="`${data.item} darken-3`">
+                <img :src="getImgSrc(data.item)" />
               </v-avatar>
             </v-chip>
           </template>
@@ -297,6 +298,11 @@ export default {
             return 0;
           });
       });
+  },
+  methods: {
+    getImgSrc(type) {
+      return require(`../assets/${type}.png`);
+    },
   },
 };
 </script>
