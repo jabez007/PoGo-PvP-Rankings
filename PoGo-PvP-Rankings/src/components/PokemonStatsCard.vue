@@ -43,7 +43,7 @@ export default {
   },
   created() {
     const self = this;
-    this.$pokedex.getPokemonByName(this.pokemon.toLowerCase())
+    this.$pokedex.getPokemonByName(this.pokemon)
       .then((response) => {
         response.stats
           .forEach((s) => {
