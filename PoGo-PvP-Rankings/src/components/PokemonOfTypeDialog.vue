@@ -1,5 +1,6 @@
 <template>
   <v-dialog v-model="dialog"
+            width="500"
             lazy>
     <TypesCard slot="activator"
                :types="types"
