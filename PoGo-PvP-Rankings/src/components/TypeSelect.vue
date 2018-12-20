@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <v-select :label="label"
             prepend-inner-icon="filter_list"
             :items="types"
@@ -24,27 +24,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'TypeSelect',
-    props: {
-      label: {
-        type: String,
-        required: true,
-      },
-      types: {
-        type: Array,
-        required: true,
-      },
+export default {
+  name: 'TypeSelect',
+  props: {
+    label: {
+      type: String,
+      required: true,
     },
-    data: () => ({
-      filter: [],
-    }),
-    methods: {
-      getImgSrc(type) {
-        return require(`../assets/${type}.png`);
-      },
+    types: {
+      type: Array,
+      required: true,
     },
-  }
+  },
+  data: () => ({
+    filter: [],
+  }),
+  methods: {
+    getImgSrc(type) {
+      return require(`../assets/${type}.png`);
+    },
+  },
+};
 </script>
 
 <style scoped>

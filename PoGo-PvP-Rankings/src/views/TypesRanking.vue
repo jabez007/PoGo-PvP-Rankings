@@ -152,7 +152,7 @@ export default {
   computed: {
     displayedTypes() {
 
-    }
+    },
   },
   created() {
     const self = this;
