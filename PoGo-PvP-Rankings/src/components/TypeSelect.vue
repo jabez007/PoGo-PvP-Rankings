@@ -23,7 +23,7 @@
 </template>
 
 <script>
-//https://scotch.io/tutorials/add-v-model-support-to-custom-vuejs-component
+// https://scotch.io/tutorials/add-v-model-support-to-custom-vuejs-component
 export default {
   name: 'TypeSelect',
   props: {

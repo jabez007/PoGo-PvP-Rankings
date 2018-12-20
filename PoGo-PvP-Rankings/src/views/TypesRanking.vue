@@ -45,7 +45,7 @@
               <TypeSelect label="Filter by endurances"
                           class="title grey--text text--lighten-4"
                           :types="baseTypes"
-                          v-model="endureFilter">
+                          v-model="enduresFilter">
               </TypeSelect>
             </v-flex>
           </v-layout>
@@ -103,7 +103,7 @@
                       text-color="white">
                 {{ Math.round($typesEffective.def.weak * 100) }}%
               </v-chip>
-            </v-flex>            
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
@@ -135,7 +135,7 @@
     </v-card-title>
     <v-card-text class="scroll"
                  :style="`max-height: ${height}em;`">
-      <v-layout v-for="(t, index) in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
+      <v-layout v-for="(t, index) in displayedTypes"
                 :key="t.name"
                 row>
         <v-flex xs2>
@@ -196,7 +196,13 @@ export default {
   }),
   computed: {
     displayedTypes() {
-
+      return this.types
+        .filter(t => (this.filter.length === 0 ? t.score < 18 : this.filter.every(f => t.name.includes(f))))
+        .filter(t => (this.immuneFilter.length === 0 || this.immuneFilter.some(f => t.def.immune.includes(f))))
+        .filter(t => (this.enduresFilter.length === 0 || this.enduresFilter.some(f => t.def.endures.includes(f))))
+        .filter(t => (this.resistsFilter.length === 0 || this.resistsFilter.some(f => t.def.resists.includes(f))))
+        .filter(t => (this.weakFilter.length === 0 || this.weakFilter.some(f => t.def.weak.includes(f))))
+        .filter(t => (this.vulnerableFilter.length === 0 || this.vulnerableFilter.some(f => t.def.vulnerable.includes(f))));
     },
   },
   created() {
@@ -224,6 +230,7 @@ export default {
             };
           });
         const baseTypes = Object.keys(types);
+        baseTypes.sort();
         self.baseTypes = baseTypes;
         for (let i = 0; i < baseTypes.length - 1; i += 1) {
           for (let j = i + 1; j < baseTypes.length; j += 1) {
