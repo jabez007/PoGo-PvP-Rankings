@@ -23,7 +23,7 @@
           <v-icon>close</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-expansion-panel>
+      <v-expansion-panel popout>
         <v-expansion-panel-content v-for="(p, i) in pokemon"
                                    :key="i"
                                    lazy>
