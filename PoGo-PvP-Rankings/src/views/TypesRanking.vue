@@ -30,15 +30,24 @@
         <v-card color="green accent-3"
                 class="header"
                 flat>
-          <v-layout align-center
+          <v-layout fill-height
+                    align-center
                     row>
-            <v-chip color="green darken-3"
-                    text-color="white">
-              {{ Math.round($typesEffective.def.endures * 100) }}%
-            </v-chip>
-            <v-spacer></v-spacer>
-            <h6 class="title grey--text text--lighten-4 hidden-md-and-down">Endures</h6>
-            <v-spacer></v-spacer>
+            <v-flex xs2>
+              <v-chip color="green darken-3"
+                      text-color="white">
+                {{ Math.round($typesEffective.def.endures * 100) }}%
+              </v-chip>
+            </v-flex>
+            <v-flex xs8
+                    offset-xs1
+                    class="hidden-md-and-down">
+              <TypeSelect label="Filter by endurances"
+                          class="title grey--text text--lighten-4"
+                          :types="baseTypes"
+                          v-model="endureFilter">
+              </TypeSelect>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
@@ -46,15 +55,24 @@
         <v-card color="green accent-2"
                 class="header"
                 flat>
-          <v-layout align-center
+          <v-layout fill-height
+                    align-center
                     row>
-            <v-chip color="green darken-2"
-                    text-color="white">
-              {{ Math.round($typesEffective.def.resists * 100) }}%
-            </v-chip>
-            <v-spacer></v-spacer>
-            <h6 class="title grey--text text--lighten-3 hidden-md-and-down">Resists</h6>
-            <v-spacer></v-spacer>
+            <v-flex xs2>
+              <v-chip color="green darken-2"
+                      text-color="white">
+                {{ Math.round($typesEffective.def.resists * 100) }}%
+              </v-chip>
+            </v-flex>
+            <v-flex xs8
+                    offset-xs1
+                    class="hidden-md-and-down">
+              <TypeSelect label="Filter by resistances"
+                          class="title grey--text text--lighten-3"
+                          :types="baseTypes"
+                          v-model="resistsFilter">
+              </TypeSelect>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
