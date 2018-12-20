@@ -25,7 +25,8 @@
       </v-toolbar>
       <v-expansion-panel>
         <v-expansion-panel-content v-for="(p, i) in pokemon"
-                                   :key="i">
+                                   :key="i"
+                                   lazy>
           <div slot="header">{{ p }}</div>
           <PokemonStatsCard :pokemon="p">
           </PokemonStatsCard>
