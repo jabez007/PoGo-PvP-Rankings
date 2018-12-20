@@ -4,7 +4,6 @@
             :items="types"
             v-model="filter"
             @input="$emit('input', $event)"
-            hide-details
             dense
             multiple
             clearable>
@@ -24,6 +23,7 @@
 </template>
 
 <script>
+//https://scotch.io/tutorials/add-v-model-support-to-custom-vuejs-component
 export default {
   name: 'TypeSelect',
   props: {

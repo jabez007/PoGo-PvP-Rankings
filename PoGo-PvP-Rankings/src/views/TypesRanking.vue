@@ -1,19 +1,28 @@
 <template>
   <v-card width="100%">
-    <v-toolbar card>
+    <v-card-title>
       <v-flex xs2>
         <v-card color="green accent-4"
                 class="header"
                 flat>
-          <v-layout align-center
+          <v-layout fill-height
+                    align-center
                     row>
-            <v-chip color="success darken-4"
-                    text-color="white">
-              {{ Math.round($typesEffective.def.immune * 100) }}%
-            </v-chip>
-            <v-spacer></v-spacer>
-            <h6 class="title grey--text text--lighten-5 hidden-md-and-down">Immune</h6>
-            <v-spacer></v-spacer>
+            <v-flex xs2>
+              <v-chip color="success darken-4"
+                      text-color="white">
+                {{ Math.round($typesEffective.def.immune * 100) }}%
+              </v-chip>
+            </v-flex>
+            <v-flex xs8
+                    offset-xs1
+                    class="hidden-md-and-down">
+              <TypeSelect label="Filter by immunities"
+                          class="title grey--text text--lighten-5"
+                          :types="baseTypes"
+                          v-model="immuneFilter">
+              </TypeSelect>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
@@ -87,7 +96,7 @@
           </v-layout>
         </v-card>
       </v-flex>
-    </v-toolbar>
+    </v-card-title>
     <v-card-text class="scroll"
                  :style="`max-height: ${height}em;`">
       <v-layout v-for="(t, index) in types.filter((t) => filter.length === 0 || filter.every((f) => t.name.includes(f)))"
