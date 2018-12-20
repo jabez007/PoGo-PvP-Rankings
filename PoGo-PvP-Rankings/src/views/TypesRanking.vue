@@ -86,15 +86,24 @@
         <v-card color="red accent-2"
                 class="header"
                 flat>
-          <v-layout align-center
+          <v-layout fill-height
+                    align-center
                     row>
-            <v-spacer></v-spacer>
-            <h6 class="title grey--text text--lighten-3 hidden-md-and-down">Weak to</h6>
-            <v-spacer></v-spacer>
-            <v-chip color="red darken-2"
-                    text-color="white">
-              {{ Math.round($typesEffective.def.weak * 100) }}%
-            </v-chip>
+            <v-flex xs8
+                    offset-xs1
+                    class="hidden-md-and-down">
+              <TypeSelect label="Filter by weaknesses"
+                          class="title grey--text text--lighten-3"
+                          :types="baseTypes"
+                          v-model="weakFilter">
+              </TypeSelect>
+            </v-flex>
+            <v-flex xs2>
+              <v-chip color="red darken-2"
+                      text-color="white">
+                {{ Math.round($typesEffective.def.weak * 100) }}%
+              </v-chip>
+            </v-flex>            
           </v-layout>
         </v-card>
       </v-flex>
@@ -102,15 +111,24 @@
         <v-card color="red accent-3"
                 class="header"
                 flat>
-          <v-layout align-center
+          <v-layout fill-height
+                    align-center
                     row>
-            <v-spacer></v-spacer>
-            <h6 class="title grey--text text--lighten-4 hidden-md-and-down">Vulnerable to</h6>
-            <v-spacer></v-spacer>
-            <v-chip color="red darken-3"
-                    text-color="white">
-              {{ Math.round($typesEffective.def.vulnerable * 100) }}%
-            </v-chip>
+            <v-flex xs8
+                    offset-xs1
+                    class="hidden-md-and-down">
+              <TypeSelect label="Filter by Vulnerabilities"
+                          class="title grey--text text--lighten-4"
+                          :types="baseTypes"
+                          v-model="vulnerableFilter">
+              </TypeSelect>
+            </v-flex>
+            <v-flex xs2>
+              <v-chip color="red darken-3"
+                      text-color="white">
+                {{ Math.round($typesEffective.def.vulnerable * 100) }}%
+              </v-chip>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>
@@ -258,19 +276,19 @@ export default {
     onResize() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          this.height = 56;
+          this.height = 53;
           break;
         case 'sm':
-          this.height = 56;
+          this.height = 53;
           break;
         case 'md':
-          this.height = 56;
+          this.height = 53;
           break;
         case 'lg':
-          this.height = 56;
+          this.height = 53;
           break;
         case 'xl':
-          this.height = 56;
+          this.height = 53;
           break;
       }
     },
