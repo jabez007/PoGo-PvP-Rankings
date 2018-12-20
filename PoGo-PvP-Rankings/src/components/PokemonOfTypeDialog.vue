@@ -22,7 +22,14 @@
           <v-icon>close</v-icon>
         </v-btn>
       </v-toolbar>
-      TODO: List Pokemon of this typing
+      <v-expansion-panel>
+        <v-expansion-panel-content v-for="(p, i) in pokemon"
+                                   :key="i">
+          <div slot="header">{{ p }}</div>
+          <PokemonStatsCard :pokemon="p">
+          </PokemonStatsCard>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
     </v-card>
   </v-dialog>
 </template>
@@ -39,13 +46,39 @@ export default {
   components: {
     TypesCard: () => import('@/components/TypesCard.vue'),
     TypeChip: () => import('@/components/TypeChip.vue'),
+    PokemonStatsCard: () => import('@/components/PokemonStatsCard.vue'),
   },
   data: () => ({
     dialog: false,
     pokemon: [],
   }),
-  created() {
+  mounted() {
+    const self = this;
     // fetch pokemon of given type(s)
+    if (this.types.length === 1) {
+      this.$pokedex.getTypeByName(this.types[0])
+        .then((response) => {
+          response.pokemon
+            .forEach((p) => {
+              self.pokemon.push(p.pokemon.name);
+            });
+        });
+    } else {
+      Promise.all(this.types.map((t) => self.$pokedex.getTypeByName(t)))
+        .then((responses) => {
+          responses
+            .reduce((aggregate, r) => aggregate.concat(r.pokemon), [])
+            .map((p) => p.pokemon.name)
+            .forEach((pkmn, idx, array) => {
+              if (array.indexOf(pkmn) === idx) { // filter out duplicates
+                if (array.indexOf(pkmn) !== array.lastIndexOf(pkmn)) {  // but we want duplicates
+                  // this really only works correctly for dual typing
+                  self.pokemon.push(pkmn);
+                }
+              }
+            });
+        });
+    }
   },
 };
 </script>
