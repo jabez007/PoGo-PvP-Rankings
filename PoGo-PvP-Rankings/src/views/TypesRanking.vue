@@ -50,27 +50,10 @@
         </v-card>
       </v-flex>
       <v-flex xs2>
-        <v-select label="Filter by type"
-                  prepend-inner-icon="filter_list"
-                  :items="baseTypes"
-                  v-model="filter"
-                  hide-details
-                  dense
-                  multiple
-                  clearable>
-          <template slot="selection"
-                    slot-scope="data">
-            <v-chip @input="filter.splice(filter.indexOf(data.item), 1)"
-                    :color="data.item"
-                    text-color="white"
-                    small
-                    close>
-              <v-avatar :color="`${data.item} darken-3`">
-                <img :src="getImgSrc(data.item)" />
-              </v-avatar>
-            </v-chip>
-          </template>
-        </v-select>
+        <TypeSelect label="Filter by type"
+                    :types="baseTypes"
+                    v-model="filter">
+        </TypeSelect>
       </v-flex>
       <v-flex xs2>
         <v-card color="red accent-2"
@@ -153,13 +136,24 @@ export default {
   components: {
     TypesCard: () => import('@/components/TypesCard.vue'),
     PokemonOfTypeDialog: () => import('@/components/PokemonOfTypeDialog.vue'),
+    TypeSelect: () => import('@/components/TypeSelect.vue'),
   },
   data: () => ({
     baseTypes: [],
     filter: [],
+    immuneFilter: [],
+    enduresFilter: [],
+    resistsFilter: [],
+    weakFilter: [],
+    vulnerableFilter: [],
     types: [],
     height: 0,
   }),
+  computed: {
+    displayedTypes() {
+
+    }
+  },
   created() {
     const self = this;
     const promises = [];
@@ -234,9 +228,6 @@ export default {
     }
   },
   methods: {
-    getImgSrc(type) {
-      return require(`../assets/${type}.png`);
-    },
     onResize() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
