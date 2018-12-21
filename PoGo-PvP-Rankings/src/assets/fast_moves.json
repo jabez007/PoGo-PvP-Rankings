@@ -1,0 +1,12 @@
+﻿{
+  "turnMs": 500,
+  "moves": [
+    {
+      "name": "mud_shot",
+      "type": "ground",
+      "power": 3,
+      "durationTurns": 2,
+      "energyDelta": 9
+    },
+  ]
+}

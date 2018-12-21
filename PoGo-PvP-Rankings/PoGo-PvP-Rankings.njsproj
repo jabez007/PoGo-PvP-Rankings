@@ -34,6 +34,31 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
+    <Content Include="src\assets\bug.png" />
+    <Content Include="src\assets\charge_moves.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\assets\dark.png" />
+    <Content Include="src\assets\dragon.png" />
+    <Content Include="src\assets\electric.png" />
+    <Content Include="src\assets\fairy.png" />
+	<Content Include="src\assets\fast_moves.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\assets\fighting.png" />
+    <Content Include="src\assets\fire.png" />
+    <Content Include="src\assets\flying.png" />
+    <Content Include="src\assets\ghost.png" />
+    <Content Include="src\assets\grass.png" />
+    <Content Include="src\assets\ground.png" />
+    <Content Include="src\assets\ice.png" />
+    <Content Include="src\assets\logo.svg" />
+    <Content Include="src\assets\normal.png" />
+    <Content Include="src\assets\poison.png" />
+    <Content Include="src\assets\psychic.png" />
+    <Content Include="src\assets\rock.png" />
+    <Content Include="src\assets\steel.png" />
+    <Content Include="src\assets\water.png" />
     <Content Include="src\components\HelloWorld.vue" />
     <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />

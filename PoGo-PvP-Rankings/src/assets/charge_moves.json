@@ -1,0 +1,10 @@
+{
+  "moves": [
+    {
+      "name": "doom_desire",
+      "type": "steel",
+      "power": 80,
+      "energyDelta": -35
+    },
+  ]
+}
