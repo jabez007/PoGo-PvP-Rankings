@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".eslintrc.js" />
+    <Compile Include="src\components\PokemonStatsRadar.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\main.js" />
     <Compile Include=".postcssrc.js" />
     <Compile Include="src\plugins\vue.prototype.js" />

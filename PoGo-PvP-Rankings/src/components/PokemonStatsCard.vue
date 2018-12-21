@@ -2,6 +2,31 @@
   <v-card height="100%"
           flat
           tile>
+    <v-card-text class="text-xs-center">
+      <v-chip>
+        <v-avatar>
+          ATK
+        </v-avatar>
+        {{ attack }}
+      </v-chip>
+      <v-chip>
+        <v-avatar>
+          DEF
+        </v-avatar>
+        {{ defense }}
+      </v-chip>
+      <v-chip>
+        <v-avatar>
+          STA
+        </v-avatar>
+        {{ stamina }}
+      </v-chip>
+    </v-card-text>
+    <PokemonStatsRadar :chart-data="chartData"
+                       :options="options">
+    </PokemonStatsRadar>
+    <v-card-actions>
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -15,7 +40,7 @@ export default {
     },
   },
   components: {
-    // TypeChip: () => import('@/components/TypeChip.vue'),
+    PokemonStatsRadar: () => import('@/components/PokemonStatsRadar'),
   },
   data: () => ({
     stats: {
@@ -26,6 +51,30 @@ export default {
       speed: 0,
       hp: 0,
     },
+    options: {
+      legend: {
+        display: false,
+      },
+      layout: {
+        padding: {
+          left: 10,
+          right: 10,
+          top: 0,
+          bottom: 0,
+        },
+      },
+      scale: {
+        ticks: {
+          // show/hides the scale labels
+          display: false,
+          //
+          beginAtZero: true,
+          suggestedMax: 500,
+        },
+      },
+    },
+    lineColor: '',
+    fillColor: '',
   }),
   computed: {
     // https://pokemongo.gamepress.gg/explaining-october-2018-stat-change
@@ -47,6 +96,24 @@ export default {
     stamina() {
       return Math.floor(this.stats.hp * 1.75 + 50);
     },
+    backgroundRgb() {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(this.fillColor);
+      return result ? `rgba(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}, 0.2)` : '';
+    },
+    chartData() {
+      return {
+        labels: ['Attack', 'Defense', 'Stamina'],
+        datasets: [
+          {
+            label: 'Pokemon Go',
+            data: [this.attack, this.defense, this.stamina],
+            borderColor: this.lineColor,
+            backgroundColor: this.backgroundRgb,
+            fill: true,
+          },
+        ],
+      };
+    },
   },
   created() {
     const self = this;
@@ -56,6 +123,13 @@ export default {
           .forEach((s) => {
             self.stats[s.stat.name.replace('-', '_')] = s.base_stat;
           });
+        if (response.types.length === 1) {
+          self.lineColor = self.$vuetify.theme[response.types[0].type.name];
+          self.fillColor = self.$vuetify.theme[response.types[0].type.name];
+        } else {
+          self.lineColor = self.$vuetify.theme[response.types[0].type.name];
+          self.fillColor = self.$vuetify.theme[response.types[1].type.name];
+        }
       });
   },
 };

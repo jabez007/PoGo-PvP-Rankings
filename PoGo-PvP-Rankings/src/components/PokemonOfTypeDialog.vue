@@ -2,6 +2,7 @@
   <v-dialog v-model="dialog"
             width="500"
             @input="onInput"
+            scrollable
             lazy>
     <TypesCard slot="activator"
                :types="types"
@@ -10,7 +11,7 @@
       </slot>
     </TypesCard>
     <v-card>
-      <v-toolbar card>
+      <v-card-title primary-title>
         <slot>
         </slot>
         <v-spacer></v-spacer>
@@ -23,16 +24,18 @@
                icon>
           <v-icon>close</v-icon>
         </v-btn>
-      </v-toolbar>
-      <v-expansion-panel popout>
-        <v-expansion-panel-content v-for="(p, i) in pokemon"
-                                   :key="i"
-                                   lazy>
-          <div slot="header">{{ p }}</div>
-          <PokemonStatsCard :pokemon="p">
-          </PokemonStatsCard>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
+      </v-card-title>
+      <v-card-text style="max-height: 600px;">
+        <v-expansion-panel inset>
+          <v-expansion-panel-content v-for="(p, i) in pokemon"
+                                     :key="i"
+                                     lazy>
+            <div slot="header">{{ p }}</div>
+            <PokemonStatsCard :pokemon="p">
+            </PokemonStatsCard>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
@@ -59,6 +62,7 @@ export default {
     onInput(input) {
       const self = this;
       if (input) {
+        self.pokemon.splice(0, self.pokemon.length);
         // fetch pokemon of given type(s)
         if (this.types.length === 1) {
           this.$pokedex.getTypeByName(this.types[0])
