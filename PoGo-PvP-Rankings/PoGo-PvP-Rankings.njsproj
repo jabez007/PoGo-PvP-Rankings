@@ -38,6 +38,7 @@
     <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
     <Content Include="src\components\PokemonOfTypeDialog.vue" />
+    <Content Include="src\components\PokemonStatsCard.vue" />
     <Content Include="src\components\TypeChip.vue">
       <SubType>Code</SubType>
     </Content>

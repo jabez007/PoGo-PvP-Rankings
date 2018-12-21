@@ -9,8 +9,8 @@
 export default {
   name: 'PokemonStatsCard',
   props: {
-    types: {
-      pokemon: String,
+    pokemon: {
+      type: String,
       required: true,
     },
   },
@@ -26,19 +26,26 @@ export default {
       speed: 0,
       hp: 0,
     },
-  })
+  }),
   computed: {
+    // https://pokemongo.gamepress.gg/explaining-october-2018-stat-change
     speed() {
       return 1 + ((this.stats.speed - 75) / 500);
     },
+    scaledAttack() {
+      return Math.round(2 * ((7 / 8) * Math.max(this.stats.attack, this.stats.special_attack) + (1 / 8) * Math.min(this.stats.attack, this.stats.special_attack)));
+    },
     attack() {
-      return Math.round(this.scaled(this.stats.attack, this.stats.special_attack) * this.speed);
+      return Math.round(this.scaledAttack * this.speed);
+    },
+    scaledDefense() {
+      return Math.round(2 * ((5 / 8) * Math.max(this.stats.defense, this.stats.special_defense) + (3 / 8) * Math.min(this.stats.defense, this.stats.special_defense)));
     },
     defense() {
-    return Math.round(this.scaled(this.stats.defense, this.stats.special_defense) * this.speed);
+      return Math.round(this.scaledDefense * this.speed);
     },
     stamina() {
-      return 2 * this.stats.hp;
+      return Math.floor(this.stats.hp * 1.75 + 50);
     },
   },
   created() {
@@ -47,14 +54,9 @@ export default {
       .then((response) => {
         response.stats
           .forEach((s) => {
-            self.stats[s.stat.name.replace('-','_')] = s.base_stat;
+            self.stats[s.stat.name.replace('-', '_')] = s.base_stat;
           });
       });
-  },
-  methods: {
-    scaled(physical, special) {
-      return Math.round(2 * ((7 / 8) * Math.max(physical, special) + (1 / 8) * Math.min(physical, special)));
-    },
   },
 };
 </script>

@@ -1,6 +1,7 @@
 <template>
   <v-dialog v-model="dialog"
             width="500"
+            @input="onInput"
             lazy>
     <TypesCard slot="activator"
                :types="types"
@@ -54,33 +55,42 @@ export default {
     dialog: false,
     pokemon: [],
   }),
-  mounted() {
-    const self = this;
-    // fetch pokemon of given type(s)
-    if (this.types.length === 1) {
-      this.$pokedex.getTypeByName(this.types[0])
-        .then((response) => {
-          response.pokemon
-            .forEach((p) => {
-              self.pokemon.push(p.pokemon.name);
+  methods: {
+    onInput(input) {
+      const self = this;
+      if (input) {
+        // fetch pokemon of given type(s)
+        if (this.types.length === 1) {
+          this.$pokedex.getTypeByName(this.types[0])
+            .then((response) => {
+              response.pokemon
+                .forEach((p) => {
+                  self.$pokedex.getPokemonByName(p.pokemon.name)
+                    .then((resp) => {
+                      if (resp.types.length === 1) {
+                        self.pokemon.push(p.pokemon.name);
+                      }
+                    });
+                });
             });
-        });
-    } else {
-      Promise.all(this.types.map((t) => self.$pokedex.getTypeByName(t)))
-        .then((responses) => {
-          responses
-            .reduce((aggregate, r) => aggregate.concat(r.pokemon), [])
-            .map((p) => p.pokemon.name)
-            .forEach((pkmn, idx, array) => {
-              if (array.indexOf(pkmn) === idx) { // filter out duplicates
-                if (array.indexOf(pkmn) !== array.lastIndexOf(pkmn)) {  // but we want duplicates
-                  // this really only works correctly for dual typing
-                  self.pokemon.push(pkmn);
-                }
-              }
+        } else {
+          Promise.all(this.types.map(t => self.$pokedex.getTypeByName(t)))
+            .then((responses) => {
+              responses
+                .reduce((aggregate, r) => aggregate.concat(r.pokemon), [])
+                .map(p => p.pokemon.name)
+                .forEach((pkmn, idx, array) => {
+                  if (array.indexOf(pkmn) === idx) { // filter out duplicates
+                    if (array.indexOf(pkmn) !== array.lastIndexOf(pkmn)) { // but we want duplicates
+                      // this really only works correctly for dual typing
+                      self.pokemon.push(pkmn);
+                    }
+                  }
+                });
             });
-        });
-    }
+        }
+      }
+    },
   },
 };
 </script>
