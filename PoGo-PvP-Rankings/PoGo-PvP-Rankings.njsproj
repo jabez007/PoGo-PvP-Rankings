@@ -42,7 +42,7 @@
     <Content Include="src\assets\dragon.png" />
     <Content Include="src\assets\electric.png" />
     <Content Include="src\assets\fairy.png" />
-	<Content Include="src\assets\fast_moves.json">
+    <Content Include="src\assets\fast_moves.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\assets\fighting.png" />
@@ -71,6 +71,12 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\components\TypeSelect.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\TypesRankingTable.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\TypesRankingTabs.vue">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\views\About.vue" />
