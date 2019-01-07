@@ -1,10 +1,802 @@
 {
   "moves": [
     {
-      "name": "doom_desire",
+      "name": "Doom Desire",
       "type": "steel",
       "power": 80,
       "energyDelta": -35
+    },
+    {
+      "name": "Hydro Cannon",
+      "type": "water",
+      "power": 90,
+      "energyDelta": -40
+    },
+    {
+      "name": "Frenzy Plant",
+      "type": "grass",
+      "power": 100,
+      "energyDelta": -45
+    },
+    {
+      "name": "Blast Burn",
+      "type": "fire",
+      "power": 110,
+      "energyDelta": -50
+    },
+    {
+      "name": "Origin Pulse",
+      "type": "water",
+      "power": 130,
+      "energyDelta": -60
+    },
+    {
+      "name": "Precipice Blades",
+      "type": "ground",
+      "power": 130,
+      "energyDelta": -60
+    },
+    {
+      "name": "Draco Meteor",
+      "type": "dragon",
+      "power": 150,
+      "energyDelta": -75
+    },
+    {
+      "name": "Meteor Mash",
+      "type": "steel",
+      "power": 100,
+      "energyDelta": -50
+    },
+    {
+      "name": "Leaf Blade",
+      "type": "grass",
+      "power": 70,
+      "energyDelta": -35
+    },
+    {
+      "name": "Avalanche",
+      "type": "ice",
+      "power": 90,
+      "energyDelta": -45
+    },
+    {
+      "name": "Focus Blast",
+      "type": "fighting",
+      "power": 150,
+      "energyDelta": -75
+    },
+    {
+      "name": "Solar Beam",
+      "type": "grass",
+      "power": 150,
+      "energyDelta": -80
+    },
+    {
+      "name": "Overheat",
+      "type": "fire",
+      "power": 150,
+      "energyDelta": -80
+    },
+    {
+      "name": "Zap Cannon",
+      "type": "electric",
+      "power": 150,
+      "energyDelta": -80
+    },
+    {
+      "name": "Hyper Beam",
+      "type": "normal",
+      "power": 150,
+      "energyDelta": -80
+    },
+    {
+      "name": "Moonblast",
+      "type": "fairy",
+      "power": 130,
+      "energyDelta": -70
+    },
+    {
+      "name": "Earthquake",
+      "type": "ground",
+      "power": 120,
+      "energyDelta": -65
+    },
+    {
+      "name": "Futuresight",
+      "type": "psychic",
+      "power": 120,
+      "energyDelta": -65
+    },
+    {
+      "name": "Outrage",
+      "type": "dragon",
+      "power": 110,
+      "energyDelta": -60
+    },
+    {
+      "name": "Psystrike",
+      "type": "psychic",
+      "power": 100,
+      "energyDelta": -55
+    },
+    {
+      "name": "Shadow Ball",
+      "type": "ghost",
+      "power": 100,
+      "energyDelta": -55
+    },
+    {
+      "name": "Stone Edge",
+      "type": "rock",
+      "power": 100,
+      "energyDelta": -55
+    },
+    {
+      "name": "Power Whip",
+      "type": "grass",
+      "power": 90,
+      "energyDelta": -50
+    },
+    {
+      "name": "Wild Charge",
+      "type": "electric",
+      "power": 90,
+      "energyDelta": -50
+    },
+    {
+      "name": "Dynamic Punch",
+      "type": "fighting",
+      "power": 90,
+      "energyDelta": -50
+    },
+    {
+      "name": "Grass Knot",
+      "type": "grass",
+      "power": 90,
+      "energyDelta": -50
+    },
+    {
+      "name": "Rock Slide",
+      "type": "rock",
+      "power": 80,
+      "energyDelta": -45
+    },
+    {
+      "name": "Sky Attack",
+      "type": "flying",
+      "power": 80,
+      "energyDelta": -45
+    },
+    {
+      "name": "Thunderbolt",
+      "type": "electric",
+      "power": 80,
+      "energyDelta": -45
+    },
+    {
+      "name": "Psycho Boost",
+      "type": "psychic",
+      "power": 70,
+      "energyDelta": -40
+    },
+    {
+      "name": "Fire Blast",
+      "type": "fire",
+      "power": 140,
+      "energyDelta": -80
+    },
+    {
+      "name": "Hydro Pump",
+      "type": "water",
+      "power": 130,
+      "energyDelta": -75
+    },
+    {
+      "name": "Blizzard",
+      "type": "ice",
+      "power": 130,
+      "energyDelta": -75
+    },
+    {
+      "name": "Gunk Shot",
+      "type": "poison",
+      "power": 130,
+      "energyDelta": -75
+    },
+    {
+      "name": "Weather ball Ice",
+      "type": "ice",
+      "power": 60,
+      "energyDelta": -35
+    },
+    {
+      "name": "Weather ball Fire",
+      "type": "fire",
+      "power": 60,
+      "energyDelta": -35
+    },
+    {
+      "name": "Weather ball Water",
+      "type": "water",
+      "power": 60,
+      "energyDelta": -35
+    },
+    {
+      "name": "Weather ball Rock",
+      "type": "rock",
+      "power": 60,
+      "energyDelta": -35
+    },
+    {
+      "name": "Petal Blizzard",
+      "type": "grass",
+      "power": 110,
+      "energyDelta": -65
+    },
+    {
+      "name": "Flash Cannon",
+      "type": "steel",
+      "power": 110,
+      "energyDelta": -65
+    },
+    {
+      "name": "Hurricane",
+      "type": "flying",
+      "power": 110,
+      "energyDelta": -65
+    },
+    {
+      "name": "Sludge Wave",
+      "type": "poison",
+      "power": 110,
+      "energyDelta": -65
+    },
+    {
+      "name": "Close Combat",
+      "type": "fighting",
+      "power": 100,
+      "energyDelta": -60
+    },
+    {
+      "name": "Thunder",
+      "type": "electric",
+      "power": 100,
+      "energyDelta": -60
+    },
+    {
+      "name": "Brave Bird",
+      "type": "flying",
+      "power": 90,
+      "energyDelta": -55
+    },
+    {
+      "name": "Megahorn",
+      "type": "bug",
+      "power": 90,
+      "energyDelta": -55
+    },
+    {
+      "name": "Ice Beam",
+      "type": "ice",
+      "power": 90,
+      "energyDelta": -55
+    },
+    {
+      "name": "Last Resort",
+      "type": "normal",
+      "power": 90,
+      "energyDelta": -55
+    },
+    {
+      "name": "Surf",
+      "type": "water",
+      "power": 65,
+      "energyDelta": -40
+    },
+    {
+      "name": "Dark Pulse",
+      "type": "dark",
+      "power": 80,
+      "energyDelta": -50
+    },
+    {
+      "name": "Sludge Bomb",
+      "type": "poison",
+      "power": 80,
+      "energyDelta": -50
+    },
+    {
+      "name": "Hyper Fang",
+      "type": "normal",
+      "power": 80,
+      "energyDelta": -50
+    },
+    {
+      "name": "Foul Play",
+      "type": "dark",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Disarming Voice",
+      "type": "fairy",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Crunch",
+      "type": "dark",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Ancient Power",
+      "type": "rock",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Silver Wind",
+      "type": "bug",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Magnet Bomb",
+      "type": "steel",
+      "power": 70,
+      "energyDelta": -45
+    },
+    {
+      "name": "Drill Peck",
+      "type": "Flying",
+      "power": 60,
+      "energyDelta": -40
+    },
+    {
+      "name": "Bug Buzz",
+      "type": "bug",
+      "power": 90,
+      "energyDelta": -60
+    },
+    {
+      "name": "Energy Ball",
+      "type": "grass",
+      "power": 90,
+      "energyDelta": -60
+    },
+    {
+      "name": "Dragon Pulse",
+      "type": "dragon",
+      "power": 90,
+      "energyDelta": -60
+    },
+    {
+      "name": "Play Rough",
+      "type": "fairy",
+      "power": 90,
+      "energyDelta": -60
+    },
+    {
+      "name": "Drill Run",
+      "type": "ground",
+      "power": 80,
+      "energyDelta": -55
+    },
+    {
+      "name": "Psyshock",
+      "type": "psychic",
+      "power": 65,
+      "energyDelta": -45
+    },
+    {
+      "name": "Discharge",
+      "type": "electric",
+      "power": 65,
+      "energyDelta": -45
+    },
+    {
+      "name": "Dazzling Gleam",
+      "type": "fairy",
+      "power": 100,
+      "energyDelta": -70
+    },
+    {
+      "name": "Body Slam",
+      "type": "normal",
+      "power": 50,
+      "energyDelta": -35
+    },
+    {
+      "name": "Cross Chop",
+      "type": "fighting",
+      "power": 50,
+      "energyDelta": -35
+    },
+    {
+      "name": "Psychic",
+      "type": "psychic",
+      "power": 100,
+      "energyDelta": -70
+    },
+    {
+      "name": "Dragon Claw",
+      "type": "dragon",
+      "power": 50,
+      "energyDelta": -35
+    },
+    {
+      "name": "Aqua Tail",
+      "type": "water",
+      "power": 50,
+      "energyDelta": -35
+    },
+    {
+      "name": "Rest",
+      "type": "normal",
+      "power": 50,
+      "energyDelta": -35
+    },
+    {
+      "name": "Flame Charge",
+      "type": "fire",
+      "power": 70,
+      "energyDelta": -50
+    },
+    {
+      "name": "Heavy Slam",
+      "type": "steel",
+      "power": 70,
+      "energyDelta": -50
+    },
+    {
+      "name": "Flamethrower",
+      "type": "fire",
+      "power": 70,
+      "energyDelta": -50
+    },
+    {
+      "name": "Stomp",
+      "type": "normal",
+      "power": 55,
+      "energyDelta": -40
+    },
+    {
+      "name": "Seed Bomb",
+      "type": "grass",
+      "power": 55,
+      "energyDelta": -40
+    },
+    {
+      "name": "Fire Punch",
+      "type": "fire",
+      "power": 55,
+      "energyDelta": -40
+    },
+    {
+      "name": "Mud Bomb",
+      "type": "ground",
+      "power": 55,
+      "energyDelta": -40
+    },
+    {
+      "name": "Signal Beam",
+      "type": "bug",
+      "power": 75,
+      "energyDelta": -55
+    },
+    {
+      "name": "Power Gem",
+      "type": "rock",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Wrap",
+      "type": "normal",
+      "power": 60,
+      "energyDelta": -45
+    },
+    {
+      "name": "Bulldoze",
+      "type": "ground",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Icy Wind",
+      "type": "ice",
+      "power": 60,
+      "energyDelta": -45
+    },
+    {
+      "name": "Scald",
+      "type": "water",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Gyro Ball",
+      "type": "steel",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Sand Tomb",
+      "type": "ground",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Aurora Beam",
+      "type": "ice",
+      "power": 80,
+      "energyDelta": -60
+    },
+    {
+      "name": "Thunder Punch",
+      "type": "electric",
+      "power": 45,
+      "energyDelta": -35
+    },
+    {
+      "name": "X Scissor",
+      "type": "bug",
+      "power": 45,
+      "energyDelta": -35
+    },
+    {
+      "name": "Flame Burst",
+      "type": "fire",
+      "power": 70,
+      "energyDelta": -55
+    },
+    {
+      "name": "Heat Wave",
+      "type": "fire",
+      "power": 95,
+      "energyDelta": -75
+    },
+    {
+      "name": "Ominous Wind",
+      "type": "ghost",
+      "power": 50,
+      "energyDelta": -40
+    },
+    {
+      "name": "Ice Punch",
+      "type": "ice",
+      "power": 50,
+      "energyDelta": -40
+    },
+    {
+      "name": "Dig",
+      "type": "ground",
+      "power": 100,
+      "energyDelta": -80
+    },
+    {
+      "name": "Sludge",
+      "type": "poison",
+      "power": 50,
+      "energyDelta": -40
+    },
+    {
+      "name": "Night Slash",
+      "type": "dark",
+      "power": 50,
+      "energyDelta": -40
+    },
+    {
+      "name": "Rock Blast",
+      "type": "rock",
+      "power": 50,
+      "energyDelta": -40
+    },
+    {
+      "name": "Aerial Ace",
+      "type": "flying",
+      "power": 55,
+      "energyDelta": -45
+    },
+    {
+      "name": "Submission",
+      "type": "fighting",
+      "power": 60,
+      "energyDelta": -50
+    },
+    {
+      "name": "Brine",
+      "type": "water",
+      "power": 60,
+      "energyDelta": -50
+    },
+    {
+      "name": "Iron Head",
+      "type": "steel",
+      "power": 60,
+      "energyDelta": -50
+    },
+    {
+      "name": "Water Pulse",
+      "type": "water",
+      "power": 70,
+      "energyDelta": -60
+    },
+    {
+      "name": "Rock Tomb",
+      "type": "rock",
+      "power": 70,
+      "energyDelta": -60
+    },
+    {
+      "name": "Psybeam",
+      "type": "psychic",
+      "power": 70,
+      "energyDelta": -60
+    },
+    {
+      "name": "Brick Break",
+      "type": "fighting",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Shadow Punch",
+      "type": "ghost",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Cross Poison",
+      "type": "poison",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Horn Attack",
+      "type": "normal",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Bone Club",
+      "type": "ground",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Poison Fang",
+      "type": "poison",
+      "power": 40,
+      "energyDelta": -35
+    },
+    {
+      "name": "Hydro Pump Blastoise",
+      "type": "water",
+      "power": 90,
+      "energyDelta": -80
+    },
+    {
+      "name": "Bubble Beam",
+      "type": "water",
+      "power": 45,
+      "energyDelta": -40
+    },
+    {
+      "name": "Shadow Sneak",
+      "type": "ghost",
+      "power": 50,
+      "energyDelta": -45
+    },
+    {
+      "name": "Mirror Coat",
+      "type": "psychic",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Night Shade",
+      "type": "ghost",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Flame Wheel",
+      "type": "fire",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Draining Kiss",
+      "type": "fairy",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Swift",
+      "type": "normal",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Air Cutter",
+      "type": "steel",
+      "power": 60,
+      "energyDelta": -55
+    },
+    {
+      "name": "Vice Grip",
+      "type": "normal",
+      "power": 40,
+      "energyDelta": -40
+    },
+    {
+      "name": "Aqua Jet",
+      "type": "water",
+      "power": 45,
+      "energyDelta": -45
+    },
+    {
+      "name": "Heart Stamp",
+      "type": "psychic",
+      "power": 40,
+      "energyDelta": -40
+    },
+    {
+      "name": "Twister",
+      "type": "dragon",
+      "power": 45,
+      "energyDelta": -45
+    },
+    {
+      "name": "Low Sweep",
+      "type": "fighting",
+      "power": 40,
+      "energyDelta": -40
+    },
+    {
+      "name": "Giga Drain",
+      "type": "grass",
+      "power": 50,
+      "energyDelta": -80
+    },
+    {
+      "name": "Scald Blastoise",
+      "type": "water",
+      "power": 50,
+      "energyDelta": -80
+    },
+    {
+      "name": "Wrap Green",
+      "type": "normal",
+      "power": 25,
+      "energyDelta": -45
+    },
+    {
+      "name": "Wrap Pink",
+      "type": "normal",
+      "power": 25,
+      "energyDelta": -45
+    },
+    {
+      "name": "Parabolic Charge",
+      "type": "electric",
+      "power": 25,
+      "energyDelta": -55
+    },
+    {
+      "name": "Mega Drain",
+      "type": "grass",
+      "power": 25,
+      "energyDelta": -55
+    },
+    {
+      "name": "Struggle",
+      "type": "normal",
+      "power": 35,
+      "energyDelta": -100
     },
   ]
 }
