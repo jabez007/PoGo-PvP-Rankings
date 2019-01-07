@@ -2,11 +2,445 @@
   "turnMs": 500,
   "moves": [
     {
-      "name": "mud_shot",
+      "name": "Mud Shot",
       "type": "ground",
       "power": 3,
       "durationTurns": 2,
       "energyDelta": 9
+    },
+    {
+      "name": "Thunder Shock",
+      "type": "electric",
+      "power": 3,
+      "durationTurns": 2,
+      "energyDelta": 9
+    },
+    {
+      "name": "Psycho Cut",
+      "type": "psychic",
+      "power": 3,
+      "durationTurns": 2,
+      "energyDelta": 9
+    },
+    {
+      "name": "Vine Whip",
+      "type": "grass",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 8
+    },
+    {
+      "name": "Spark",
+      "type": "electric",
+      "power": 4,
+      "durationTurns": 2,
+      "energyDelta": 8
+    },
+    {
+      "name": "Powder Snow",
+      "type": "ice",
+      "power": 4,
+      "durationTurns": 2,
+      "energyDelta": 8
+    },
+    {
+      "name": "Fury Cutter",
+      "type": "bug",
+      "power": 2,
+      "durationTurns": 1,
+      "energyDelta": 4
+    },
+    {
+      "name": "Present",
+      "type": "normal",
+      "power": 3,
+      "durationTurns": 3,
+      "energyDelta": 12
+    },
+    {
+      "name": "Bubble",
+      "type": "water",
+      "power": 8,
+      "durationTurns": 3,
+      "energyDelta": 11
+    },
+    {
+      "name": "Infestation",
+      "type": "bug",
+      "power": 6,
+      "durationTurns": 3,
+      "energyDelta": 11
+    },
+    {
+      "name": "Hex",
+      "type": "ghost",
+      "power": 6,
+      "durationTurns": 3,
+      "energyDelta": 11
+    },
+    {
+      "name": "Charge Beam",
+      "type": "electric",
+      "power": 5,
+      "durationTurns": 3,
+      "energyDelta": 11
+    },
+    {
+      "name": "Bullet Seed",
+      "type": "grass",
+      "power": 5,
+      "durationTurns": 3,
+      "energyDelta": 11
+    },
+    {
+      "name": "Counter",
+      "type": "fighting",
+      "power": 8,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Shadow Claw",
+      "type": "ghost",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Poison Jab",
+      "type": "poison",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Bullet Punch",
+      "type": "steel",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Karate Chop",
+      "type": "fighting",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Wing Attack",
+      "type": "flying",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Sucker Punch",
+      "type": "dark",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Quick Attack",
+      "type": "normal",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 7
+    },
+    {
+      "name": "Fire Spin",
+      "type": "fire",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 10
+    },
+    {
+      "name": "Dragon Tail",
+      "type": "dragon",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 10
+    },
+    {
+      "name": "Ice Shard",
+      "type": "ice",
+      "power": 8,
+      "durationTurns": 3,
+      "energyDelta": 10
+    },
+    {
+      "name": "Snarl",
+      "type": "dark",
+      "power": 8,
+      "durationTurns": 3,
+      "energyDelta": 10
+    },
+    {
+      "name": "Extrasensory",
+      "type": "psychic",
+      "power": 8,
+      "durationTurns": 3,
+      "energyDelta": 10
+    },
+    {
+      "name": "Dragon Breath",
+      "type": "dragon",
+      "power": 4,
+      "durationTurns": 1,
+      "energyDelta": 3
+    },
+    {
+      "name": "Confusion",
+      "type": "psychic",
+      "power": 12,
+      "durationTurns": 4,
+      "energyDelta": 12
+    },
+    {
+      "name": "Lick",
+      "type": "ghost",
+      "power": 3,
+      "durationTurns": 1,
+      "energyDelta": 3
+    },
+    {
+      "name": "Water Gun",
+      "type": "water",
+      "power": 3,
+      "durationTurns": 1,
+      "energyDelta": 3
+    },
+    {
+      "name": "Feint Attack",
+      "type": "dark",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 6
+    },
+    {
+      "name": "Bug Bite",
+      "type": "bug",
+      "power": 3,
+      "durationTurns": 1,
+      "energyDelta": 3
+    },
+    {
+      "name": "Ember",
+      "type": "fire",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 6
+    },
+    {
+      "name": "Air Slash",
+      "type": "flying",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 9
+    },
+    {
+      "name": "Metal Claw",
+      "type": "steel",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 6
+    },
+    {
+      "name": "Astonish",
+      "type": "ghost",
+      "power": 5,
+      "durationTurns": 3,
+      "energyDelta": 9
+    },
+    {
+      "name": "Posison String",
+      "type": "poison",
+      "power": 3,
+      "durationTurns": 2,
+      "energyDelta": 6
+    },
+    {
+      "name": "Yawn",
+      "type": "normal",
+      "power": 0,
+      "durationTurns": 4,
+      "energyDelta": 12
+    },
+    {
+      "name": "Splash",
+      "type": "water",
+      "power": 0,
+      "durationTurns": 4,
+      "energyDelta": 12
+    },
+    {
+      "name": "Waterfall",
+      "type": "water",
+      "power": 10,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Smack Down",
+      "type": "rock",
+      "power": 10,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Struggle Bug",
+      "type": "bug",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Mud Slap",
+      "type": "ground",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Hidden Power",
+      "type": "normal",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Take Down",
+      "type": "normal",
+      "power": 5,
+      "durationTurns": 3,
+      "energyDelta": 8
+    },
+    {
+      "name": "Rock Throw",
+      "type": "rock",
+      "power": 8,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Fire Fang",
+      "type": "fire",
+      "power": 7,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Steel Wing",
+      "type": "steel",
+      "power": 7,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Frost Breath",
+      "type": "ice",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Peck",
+      "type": "flying",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Acid",
+      "type": "poison",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Low Kick",
+      "type": "fighting",
+      "power": 4,
+      "durationTurns": 2,
+      "energyDelta": 5
+    },
+    {
+      "name": "Rock Smash",
+      "type": "fighting",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 7
+    },
+    {
+      "name": "Bite",
+      "type": "dark",
+      "power": 4,
+      "durationTurns": 1,
+      "energyDelta": 2
+    },
+    {
+      "name": "Scratch",
+      "type": "normal",
+      "power": 4,
+      "durationTurns": 1,
+      "energyDelta": 2
+    },
+    {
+      "name": "Razor Leaf",
+      "type": "grass",
+      "power": 8,
+      "durationTurns": 2,
+      "energyDelta": 4
+    },
+    {
+      "name": "Tackle",
+      "type": "normal",
+      "power": 3,
+      "durationTurns": 1,
+      "energyDelta": 2
+    },
+    {
+      "name": "Iron Tail",
+      "type": "steel",
+      "power": 9,
+      "durationTurns": 3,
+      "energyDelta": 6
+    },
+    {
+      "name": "Water Gun",
+      "type": "ground",
+      "power": 6,
+      "durationTurns": 2,
+      "energyDelta": 4
+    },
+    {
+      "name": "Cut",
+      "type": "normal",
+      "power": 3,
+      "durationTurns": 1,
+      "energyDelta": 2
+    },
+    {
+      "name": "Zen Headbutt",
+      "type": "psychic",
+      "power": 8,
+      "durationTurns": 3,
+      "energyDelta": 6
+    },
+    {
+      "name": "Pound",
+      "type": "normal",
+      "power": 5,
+      "durationTurns": 2,
+      "energyDelta": 4
+    },
+    {
+      "name": "Volt Switch",
+      "type": "electric",
+      "power": 12,
+      "durationTurns": 5,
+      "energyDelta": 10
     },
   ]
 }
