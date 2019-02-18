@@ -14,13 +14,23 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
     {
-      path: '/types',
-      name: 'types',
-      component: () => import('./views/TypesRanking.vue'),
+      path: '/cups/boulder',
+      name: 'boulderCup',
+      component: () => import('./views/BoulderCup.vue'),
+    },
+    {
+      path: '/cups/twilight',
+      name: 'twilightCup',
+      component: () => import('./views/TwilightCup.vue'),
+    },
+      {
+      path: '/cups/tempest',
+      name: 'tempestCup',
+      component: () => import('./views/TempestCup.vue'),
     },
     {
       path: '*',
-      component: () => import('./views/TypesRanking.vue'),
+      component: () => import('./views/AllTypes.vue'),
     },
   ],
 });
