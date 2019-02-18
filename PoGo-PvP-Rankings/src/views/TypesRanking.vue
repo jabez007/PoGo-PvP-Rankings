@@ -14,6 +14,31 @@
 <script>
 export default {
   name: 'TypesRanking',
+  props: {
+    requestedTypes: {
+      type: Array,
+      default: [
+        'normal',
+        'fighting',
+        'flying',
+        'poison',
+        'ground',
+        'rock',
+        'bug',
+        'ghost',
+        'steel',
+        'fire',
+        'water',
+        'grass',
+        'electric',
+        'psychic',
+        'ice',
+        'dragon',
+        'dark',
+        'fairy',
+      ],
+    },
+  },
   components: {
     TypesRankingTable: () => import('@/components/TypesRankingTable.vue'),
     TypesRankingTabs: () => import('@/components/TypesRankingTabs.vue'),
@@ -25,10 +50,8 @@ export default {
   }),
   created() {
     const self = this;
-    const promises = [];
-    for (let i = 1; i <= 18; i += 1) {
-      promises.push(this.$pokedex.resource(`/api/v2/type/${i}/`));
-    }
+    const promises = this.requestedTypes
+      .map((t) => self.$pokedex.resource(`/api/v2/type/${t}/`));
     Promise.all(promises)
       .then((responses) => {
         const types = {};
