@@ -50,8 +50,27 @@ export default {
   }),
   created() {
     const self = this;
-    const promises = this.requestedTypes
-      .map((t) => self.$pokedex.resource(`/api/v2/type/${t}/`));
+    const requestedTypes = new RegExp(this.requestedTypes.join('|'));
+    const promises = [
+      'normal',
+      'fighting',
+      'flying',
+      'poison',
+      'ground',
+      'rock',
+      'bug',
+      'ghost',
+      'steel',
+      'fire',
+      'water',
+      'grass',
+      'electric',
+      'psychic',
+      'ice',
+      'dragon',
+      'dark',
+      'fairy',
+    ].map(t => self.$pokedex.resource(`/api/v2/type/${t}/`));
     Promise.all(promises)
       .then((responses) => {
         const types = {};
@@ -82,6 +101,7 @@ export default {
         }
 
         self.types = Object.keys(types)
+          .filter(t => requestedTypes.test(t))
           .map(t => ({
             name: t,
             def: types[t].def,
