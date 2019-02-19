@@ -17,7 +17,7 @@ export default {
   props: {
     requestedTypes: {
       type: Array,
-      default: [
+      default: () => [
         'normal',
         'fighting',
         'flying',

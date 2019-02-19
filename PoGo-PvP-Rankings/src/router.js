@@ -23,7 +23,7 @@ export default new Router({
       name: 'twilightCup',
       component: () => import('./views/TwilightCup.vue'),
     },
-      {
+    {
       path: '/cups/tempest',
       name: 'tempestCup',
       component: () => import('./views/TempestCup.vue'),

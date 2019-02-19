@@ -9,5 +9,5 @@ export default {
   components: {
     TypesRanking: () => import('@/components/TypesRanking.vue'),
   },
-}
+};
 </script>

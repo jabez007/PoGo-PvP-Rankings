@@ -4,7 +4,7 @@
                          clipped
                          fixed
                          app>
-      <v-list three-line 
+      <v-list three-line
               dense>
         <v-list-group prepend-icon=""
                       :value="true"
@@ -19,24 +19,24 @@
                        ripple>
             <v-list-tile-content>
               <v-list-tile-title>Boulder Cup</v-list-tile-title>
-              <v-list-tile-sub-title>January</v-list-tile-title>
-              <v-list-tile-sub-title>Rock, Ground, Steel, Fighting</v-list-tile-title>
+              <v-list-tile-sub-title>January</v-list-tile-sub-title>
+              <v-list-tile-sub-title>Rock, Ground, Steel, Fighting</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile to="/cups/twilight"
                        ripple>
             <v-list-tile-content>
               <v-list-tile-title>Twilight Cup</v-list-tile-title>
-              <v-list-tile-sub-title>February</v-list-tile-title>
-              <v-list-tile-sub-title>Fairy, Dark, Poison, Ghost</v-list-tile-title>
+              <v-list-tile-sub-title>February</v-list-tile-sub-title>
+              <v-list-tile-sub-title>Fairy, Dark, Poison, Ghost</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile to="/cups/tempest"
                        ripple>
             <v-list-tile-content>
               <v-list-tile-title>Tempest Cup</v-list-tile-title>
-              <v-list-tile-sub-title>March</v-list-tile-title>
-              <v-list-tile-sub-title>Electric, Ice, Flying, Ground</v-list-tile-title>
+              <v-list-tile-sub-title>March</v-list-tile-sub-title>
+              <v-list-tile-sub-title>Electric, Ice, Flying, Ground</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>

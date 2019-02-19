@@ -73,6 +73,7 @@
     <Content Include="src\components\TypeSelect.vue">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\components\TypesRanking.vue" />
     <Content Include="src\components\TypesRankingTable.vue">
       <SubType>Code</SubType>
     </Content>

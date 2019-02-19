@@ -4,17 +4,28 @@
           flat
           tile
           :hover="onHover">
-    <v-layout justify-center
-              fill-height
-              align-center
+    <v-layout fill-height
+              align-content-center
               row
               wrap>
-      <slot>
-      </slot>
-      <TypeChip v-for="(type, index) in types"
-                :key="index"
-                :type="type">
-      </TypeChip>
+      <v-flex>
+        <v-layout justify-center
+                  row
+                  wrap>
+          <slot>
+          </slot>
+        </v-layout>
+      </v-flex>
+      <v-flex>
+        <v-layout justify-center
+                  row
+                  wrap>
+          <TypeChip v-for="(type, index) in types"
+                    :key="index"
+                    :type="type">
+          </TypeChip>
+        </v-layout>
+      </v-flex>
     </v-layout>
   </v-card>
 </template>
