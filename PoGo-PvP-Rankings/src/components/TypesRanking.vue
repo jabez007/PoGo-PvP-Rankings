@@ -38,6 +38,14 @@ export default {
         'fairy',
       ],
     },
+    maxWeaknesses: {
+      type: Number,
+      default: 18,
+    },
+    maxVulnerabilities: {
+      type: Number,
+      default: 18,
+    },
   },
   components: {
     TypesRankingTable: () => import('@/components/TypesRankingTable.vue'),
@@ -102,6 +110,7 @@ export default {
 
         self.types = Object.keys(types)
           .filter(t => requestedTypes.test(t))
+          .filter(t => types[t].def.weak.length <= this.maxWeaknesses && types[t].def.vulnerable.length <= this.maxVulnerabilities)
           .map(t => ({
             name: t,
             def: types[t].def,

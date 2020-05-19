@@ -2,7 +2,7 @@ import Vue from 'vue';
 import './plugins/vue.prototype';
 import './plugins/vuetify';
 import App from './App.vue';
-import router from './router';
+import router from './plugins/router';
 
 Vue.config.productionTip = true;
 
