@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0aa51f"],{1109:function(n,e,s){"use strict";s.r(e);var a=function(){var n=this,e=n.$createElement,s=n._self._c||e;return s("TypesRanking",{attrs:{maxWeaknesses:1,maxVulnerabilities:0}})},t=[],i={name:"SingleWeakness",components:{TypesRanking:function(){return s.e("chunk-56db9296").then(s.bind(null,"a805"))}}},l=i,u=s("2877"),c=Object(u["a"])(l,a,t,!1,null,null,null);c.options.__file="SingleWeakness.vue";e["default"]=c.exports}}]);
+//# sourceMappingURL=chunk-2d0aa51f.1a3a740d.js.map
